@@ -15,6 +15,8 @@ public interface Bytes {
 
     int size();
 
+    byte elementAt(int index);
+
     byte[] toByteArray();
 
     ByteBuffer toByteBuffer();
