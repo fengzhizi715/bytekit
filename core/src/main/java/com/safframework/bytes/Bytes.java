@@ -44,4 +44,14 @@ public interface Bytes {
     Bytes or(byte[] bytes);
 
     String toString(Charset charset);
+
+    default String toHexString() {
+        byte[] arr = toByteArray();
+        char[] result = new char[arr.length * 2];
+        for (int i = 0; i < arr.length; ++i) {
+            result[i * 2] = Constants.HEX_ARRAY[(arr[i] >> 4) & 0xF];
+            result[i * 2 + 1] = Constants.HEX_ARRAY[(arr[i] & 0xF)];
+        }
+        return new String(result);
+    }
 }
