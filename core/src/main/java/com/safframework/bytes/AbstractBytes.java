@@ -11,21 +11,25 @@ import java.nio.charset.StandardCharsets;
  */
 public abstract class AbstractBytes implements Bytes {
 
+    @Override
     public Bytes copy() {
 
         return transform(new CopyTransformer(0, size()));
     }
 
+    @Override
     public Bytes copy(int offset, int length) {
 
         return transform(new CopyTransformer(offset, length));
     }
 
+    @Override
     public Bytes contact(byte[] bytes) {
 
         return transform(new ConcatTransformer(bytes));
     }
 
+    @Override
     public Bytes reverse() {
 
         return transform(new ReverseTransformer());

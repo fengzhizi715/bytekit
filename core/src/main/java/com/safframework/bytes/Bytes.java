@@ -29,5 +29,13 @@ public interface Bytes {
 
     Bytes transform(BytesTransformer transformer);
 
+    Bytes copy();
+
+    Bytes copy(int offset, int length);
+
+    Bytes contact(byte[] bytes);
+
+    Bytes reverse();
+
     String toString(Charset charset);
 }
