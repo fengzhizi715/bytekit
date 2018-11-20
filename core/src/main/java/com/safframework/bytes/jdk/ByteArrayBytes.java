@@ -47,7 +47,7 @@ public class ByteArrayBytes extends AbstractBytes {
     }
 
     @Override
-    public byte elementAt(int index) {
+    public byte byteAt(int index) {
 
         if (index<0 || index>=length) {
 
@@ -60,9 +60,7 @@ public class ByteArrayBytes extends AbstractBytes {
     @Override
     public byte[] toByteArray() {
 
-        final byte[] copy = new byte[length];
-        System.arraycopy(bytes, offset, copy, 0, length);
-        return copy;
+        return bytes;
     }
 
     @Override
