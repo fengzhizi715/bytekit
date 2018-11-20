@@ -79,7 +79,10 @@ public class ByteArrayBytes extends AbstractBytes {
 
     @Override
     public Bytes transform(BytesTransformer transformer) {
-        return null;
+
+        byte[] newBytes = transformer.transform(bytes);
+
+        return new ByteArrayBytes(newBytes);
     }
 
     @Override
