@@ -37,5 +37,11 @@ public interface Bytes {
 
     Bytes reverse();
 
+    Bytes xor(byte[] bytes);
+
+    Bytes and(byte[] bytes);
+
+    Bytes or(byte[] bytes);
+
     String toString(Charset charset);
 }

@@ -1,5 +1,6 @@
 package com.safframework.bytes;
 
+import com.safframework.bytes.transformer.impl.BitWiseOperatorTransformer;
 import com.safframework.bytes.transformer.impl.ConcatTransformer;
 import com.safframework.bytes.transformer.impl.CopyTransformer;
 import com.safframework.bytes.transformer.impl.ReverseTransformer;
@@ -33,6 +34,22 @@ public abstract class AbstractBytes implements Bytes {
     public Bytes reverse() {
 
         return transform(new ReverseTransformer());
+    }
+
+    @Override
+    public Bytes xor(byte[] bytes) {
+
+        return transform(new BitWiseOperatorTransformer(bytes,BitWiseOperatorTransformer.Mode.XOR));
+    }
+
+    @Override
+    public Bytes and(byte[] bytes) {
+        return transform(new BitWiseOperatorTransformer(bytes, BitWiseOperatorTransformer.Mode.AND));
+    }
+
+    @Override
+    public Bytes or(byte[] bytes) {
+        return transform(new BitWiseOperatorTransformer(bytes, BitWiseOperatorTransformer.Mode.OR));
     }
 
     @Override
