@@ -4,6 +4,7 @@ import com.safframework.bytes.AbstractBytes;
 import com.safframework.bytes.Bytes;
 import com.safframework.bytes.transformer.BytesTransformer;
 
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
@@ -48,7 +49,8 @@ public class ByteBufferBytes extends AbstractBytes {
 
     @Override
     public InputStream newInputStream() {
-        return null;
+
+        return new ByteArrayInputStream(toByteArray());
     }
 
     @Override
