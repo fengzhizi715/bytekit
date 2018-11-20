@@ -41,6 +41,10 @@ public class ByteArrayBytes extends AbstractBytes {
         this.length = length;
     }
 
+    public static Bytes empty() {
+        return ByteArrayBytes.EMPTY;
+    }
+
     @Override
     public int size() {
         return length;

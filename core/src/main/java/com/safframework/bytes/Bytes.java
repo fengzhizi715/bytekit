@@ -1,5 +1,6 @@
 package com.safframework.bytes;
 
+import com.safframework.bytes.jdk.ByteArrayBytes;
 import com.safframework.bytes.transformer.BytesTransformer;
 
 import java.io.InputStream;

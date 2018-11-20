@@ -57,6 +57,7 @@ public class ByteBufferBytes extends AbstractBytes {
     public Bytes transform(BytesTransformer transformer) {
 
         byte[] newBytes = transformer.transform(toByteArray());
+
         return new ByteBufferBytes(ByteBuffer.wrap(newBytes));
     }
 
