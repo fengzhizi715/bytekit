@@ -44,16 +44,19 @@ public abstract class AbstractBytes implements Bytes {
 
     @Override
     public Bytes and(byte[] bytes) {
+
         return transform(new BitWiseOperatorTransformer(bytes, BitWiseOperatorTransformer.Mode.AND));
     }
 
     @Override
     public Bytes or(byte[] bytes) {
+
         return transform(new BitWiseOperatorTransformer(bytes, BitWiseOperatorTransformer.Mode.OR));
     }
 
     @Override
     public String toString() {
+
         return toString(StandardCharsets.UTF_8);
     }
 }
