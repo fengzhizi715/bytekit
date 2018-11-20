@@ -1,6 +1,5 @@
 package com.safframework.bytes;
 
-import com.safframework.bytes.transformer.BytesTransformer;
 import com.safframework.bytes.transformer.impl.ConcatTransformer;
 
 import java.nio.charset.StandardCharsets;

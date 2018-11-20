@@ -1,6 +1,5 @@
 package com.safframework.bytes;
 
-import com.safframework.bytes.jdk.ByteArrayBytes;
 import com.safframework.bytes.transformer.BytesTransformer;
 
 import java.io.InputStream;
@@ -15,6 +14,8 @@ public interface Bytes {
     default boolean isEmpty() {
         return size() == 0;
     }
+
+    Bytes empty();
 
     int size();
 

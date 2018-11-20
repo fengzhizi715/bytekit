@@ -14,7 +14,7 @@ import java.nio.charset.Charset;
  */
 public class ByteArrayBytes extends AbstractBytes {
 
-    public static final ByteArrayBytes EMPTY = new ByteArrayBytes(new byte[0]);
+    private static final ByteArrayBytes EMPTY = new ByteArrayBytes(new byte[0]);
 
     private final byte[] bytes;
 
@@ -41,7 +41,9 @@ public class ByteArrayBytes extends AbstractBytes {
         this.length = length;
     }
 
-    public static Bytes empty() {
+    @Override
+    public Bytes empty() {
+        
         return ByteArrayBytes.EMPTY;
     }
 

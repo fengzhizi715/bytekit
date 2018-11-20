@@ -14,11 +14,19 @@ import java.nio.charset.Charset;
  */
 public class ByteBufferBytes extends AbstractBytes {
 
+    private static final ByteBufferBytes EMPTY = new ByteBufferBytes(ByteBuffer.wrap(new byte[0]));
+
     private final ByteBuffer buffer;
 
     public ByteBufferBytes(ByteBuffer buffer) {
 
         this.buffer = buffer;
+    }
+
+    @Override
+    public Bytes empty() {
+
+        return ByteBufferBytes.EMPTY;
     }
 
     @Override
