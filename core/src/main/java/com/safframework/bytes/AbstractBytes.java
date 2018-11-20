@@ -2,6 +2,7 @@ package com.safframework.bytes;
 
 import com.safframework.bytes.transformer.impl.ConcatTransformer;
 import com.safframework.bytes.transformer.impl.CopyTransformer;
+import com.safframework.bytes.transformer.impl.ReverseTransformer;
 
 import java.nio.charset.StandardCharsets;
 
@@ -23,6 +24,11 @@ public abstract class AbstractBytes implements Bytes {
     public Bytes contact(byte[] bytes) {
 
         return transform(new ConcatTransformer(bytes));
+    }
+
+    public Bytes reverse() {
+
+        return transform(new ReverseTransformer());
     }
 
     @Override
