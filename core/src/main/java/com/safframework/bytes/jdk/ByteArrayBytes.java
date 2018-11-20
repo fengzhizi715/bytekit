@@ -43,7 +43,7 @@ public class ByteArrayBytes extends AbstractBytes {
 
     @Override
     public Bytes empty() {
-        
+
         return ByteArrayBytes.EMPTY;
     }
 
