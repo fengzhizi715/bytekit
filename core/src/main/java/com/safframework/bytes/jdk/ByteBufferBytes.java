@@ -3,9 +3,9 @@ package com.safframework.bytes.jdk;
 import com.safframework.bytes.AbstractBytes;
 import com.safframework.bytes.Bytes;
 import com.safframework.bytes.transformer.BytesTransformer;
+import com.safframework.tony.common.utils.IOUtils;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 
@@ -32,6 +32,31 @@ public class ByteBufferBytes extends AbstractBytes {
     public static ByteBufferBytes create(byte[] bytes) {
 
         return new ByteBufferBytes(ByteBuffer.wrap(bytes));
+    }
+
+    public static ByteBufferBytes create(InputStream inputStream) {
+
+        byte[] bytes = null;
+        try {
+            bytes = IOUtils.readInputStream(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+            bytes = new byte[0];
+        }
+
+        return create(bytes);
+    }
+
+    public static ByteBufferBytes create(File file) {
+
+        InputStream inputStream = null;
+        try {
+            inputStream = new FileInputStream(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return create(inputStream);
     }
 
     @Override
