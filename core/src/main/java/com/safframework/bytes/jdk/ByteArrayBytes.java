@@ -48,6 +48,12 @@ public class ByteArrayBytes extends AbstractBytes {
     }
 
     @Override
+    public Bytes create(byte[] bytes) {
+
+        return new ByteArrayBytes(bytes);
+    }
+
+    @Override
     public int size() {
         return length;
     }

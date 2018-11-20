@@ -30,6 +30,12 @@ public class ByteBufferBytes extends AbstractBytes {
     }
 
     @Override
+    public Bytes create(byte[] bytes) {
+
+        return new ByteBufferBytes(ByteBuffer.wrap(bytes));
+    }
+
+    @Override
     public int size() {
 
         return buffer.remaining();
