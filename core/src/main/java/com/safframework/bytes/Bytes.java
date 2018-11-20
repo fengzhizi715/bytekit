@@ -17,8 +17,6 @@ public interface Bytes {
 
     Bytes empty();
 
-    Bytes create(byte[] bytes);
-
     int size();
 
     byte byteAt(int index);

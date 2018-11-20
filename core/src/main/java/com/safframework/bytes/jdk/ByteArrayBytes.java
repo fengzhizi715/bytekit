@@ -47,8 +47,7 @@ public class ByteArrayBytes extends AbstractBytes {
         return ByteArrayBytes.EMPTY;
     }
 
-    @Override
-    public Bytes create(byte[] bytes) {
+    public static ByteArrayBytes create(byte[] bytes) {
 
         return new ByteArrayBytes(bytes);
     }

@@ -29,8 +29,7 @@ public class ByteBufferBytes extends AbstractBytes {
         return ByteBufferBytes.EMPTY;
     }
 
-    @Override
-    public Bytes create(byte[] bytes) {
+    public static ByteBufferBytes create(byte[] bytes) {
 
         return new ByteBufferBytes(ByteBuffer.wrap(bytes));
     }

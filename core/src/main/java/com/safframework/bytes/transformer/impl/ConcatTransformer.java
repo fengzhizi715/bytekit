@@ -19,8 +19,8 @@ public class ConcatTransformer implements BytesTransformer {
         int length = bytes.length+currentArray.length;
         byte[] result = new byte[length];
 
-        System.arraycopy(bytes, 0, result, 0, bytes.length);
-        System.arraycopy(currentArray, 0, result, bytes.length, currentArray.length);
+        System.arraycopy(currentArray, 0, result, 0, currentArray.length);
+        System.arraycopy(bytes, 0, result, currentArray.length, bytes.length);
         return result;
     }
 }
