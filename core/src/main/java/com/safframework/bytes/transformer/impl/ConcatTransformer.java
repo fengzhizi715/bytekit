@@ -1,4 +1,6 @@
-package com.safframework.bytes.transformer;
+package com.safframework.bytes.transformer.impl;
+
+import com.safframework.bytes.transformer.BytesTransformer;
 
 /**
  * Created by tony on 2018/11/20.
@@ -7,7 +9,7 @@ public class ConcatTransformer implements BytesTransformer {
 
     private byte[] bytes;
 
-    private ConcatTransformer(byte[] bytes) {
+    public ConcatTransformer(byte[] bytes) {
         this.bytes = bytes;
     }
 
