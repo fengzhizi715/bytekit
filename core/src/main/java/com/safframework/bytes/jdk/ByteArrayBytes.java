@@ -100,7 +100,7 @@ public class ByteArrayBytes extends AbstractBytes {
     }
 
     @Override
-    public ByteBuffer toByteBuffer() {
+    public ByteBuffer toReadOnlyBuffer() {
 
         return ByteBuffer.wrap(bytes, offset, length).asReadOnlyBuffer();
     }

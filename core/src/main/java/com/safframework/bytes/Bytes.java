@@ -23,7 +23,7 @@ public interface Bytes {
 
     byte[] toByteArray();
 
-    ByteBuffer toByteBuffer();
+    ByteBuffer toReadOnlyBuffer();
 
     InputStream newInputStream();
 

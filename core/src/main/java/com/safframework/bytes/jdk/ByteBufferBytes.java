@@ -75,12 +75,12 @@ public class ByteBufferBytes extends AbstractBytes {
     public byte[] toByteArray() {
 
         byte[] dest = new byte[size()];
-        toByteBuffer().get(dest);
+        toReadOnlyBuffer().get(dest);
         return dest;
     }
 
     @Override
-    public ByteBuffer toByteBuffer() {
+    public ByteBuffer toReadOnlyBuffer() {
 
         return buffer.asReadOnlyBuffer();
     }
