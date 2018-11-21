@@ -8,6 +8,7 @@ import com.safframework.tony.common.utils.IOUtils;
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 /**
  * Created by tony on 2018/11/20.
@@ -17,6 +18,11 @@ public class ByteBufferBytes extends AbstractBytes {
     private static final ByteBufferBytes EMPTY = new ByteBufferBytes(ByteBuffer.wrap(new byte[0]));
 
     private final ByteBuffer buffer;
+
+    public ByteBufferBytes(final byte[] bytes) {
+
+        this.buffer = ByteBuffer.wrap(bytes);
+    }
 
     public ByteBufferBytes(ByteBuffer buffer) {
 
@@ -54,9 +60,19 @@ public class ByteBufferBytes extends AbstractBytes {
         return create(bytes);
     }
 
+    public static ByteBufferBytes create(CharSequence utf8String) {
+
+        return create(utf8String, StandardCharsets.UTF_8);
+    }
+
+    public static ByteBufferBytes create(CharSequence sequence, Charset charset) {
+
+        return create(sequence.toString().getBytes(charset));
+    }
+
     public static ByteBufferBytes create(byte[] bytes) {
 
-        return new ByteBufferBytes(ByteBuffer.wrap(bytes));
+        return new ByteBufferBytes(bytes);
     }
 
     @Override
@@ -96,7 +112,7 @@ public class ByteBufferBytes extends AbstractBytes {
 
         byte[] newBytes = transformer.transform(toByteArray());
 
-        return new ByteBufferBytes(ByteBuffer.wrap(newBytes));
+        return new ByteBufferBytes(newBytes);
     }
 
     @Override
