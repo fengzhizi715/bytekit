@@ -29,9 +29,16 @@ public class ByteBufferBytes extends AbstractBytes {
         return ByteBufferBytes.EMPTY;
     }
 
-    public static ByteBufferBytes create(byte[] bytes) {
+    public static ByteBufferBytes create(File file) {
 
-        return new ByteBufferBytes(ByteBuffer.wrap(bytes));
+        InputStream inputStream = null;
+        try {
+            inputStream = new FileInputStream(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return create(inputStream);
     }
 
     public static ByteBufferBytes create(InputStream inputStream) {
@@ -47,16 +54,9 @@ public class ByteBufferBytes extends AbstractBytes {
         return create(bytes);
     }
 
-    public static ByteBufferBytes create(File file) {
+    public static ByteBufferBytes create(byte[] bytes) {
 
-        InputStream inputStream = null;
-        try {
-            inputStream = new FileInputStream(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        return create(inputStream);
+        return new ByteBufferBytes(ByteBuffer.wrap(bytes));
     }
 
     @Override

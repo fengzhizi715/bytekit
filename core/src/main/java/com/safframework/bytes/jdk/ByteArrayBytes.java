@@ -47,9 +47,16 @@ public class ByteArrayBytes extends AbstractBytes {
         return ByteArrayBytes.EMPTY;
     }
 
-    public static ByteArrayBytes create(byte[] bytes) {
+    public static ByteArrayBytes create(File file) {
 
-        return new ByteArrayBytes(bytes);
+        InputStream inputStream = null;
+        try {
+            inputStream = new FileInputStream(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return create(inputStream);
     }
 
     public static ByteArrayBytes create(InputStream inputStream) {
@@ -65,16 +72,9 @@ public class ByteArrayBytes extends AbstractBytes {
         return new ByteArrayBytes(bytes);
     }
 
-    public static ByteArrayBytes create(File file) {
+    public static ByteArrayBytes create(byte[] bytes) {
 
-        InputStream inputStream = null;
-        try {
-            inputStream = new FileInputStream(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        return create(inputStream);
+        return new ByteArrayBytes(bytes);
     }
 
     @Override
