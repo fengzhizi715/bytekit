@@ -55,6 +55,12 @@ public abstract class AbstractBytes implements Bytes {
     }
 
     @Override
+    public Bytes not(byte[] bytes) {
+
+        return transform(new BitWiseOperatorTransformer(bytes, BitWiseOperatorTransformer.Mode.NOT));
+    }
+
+    @Override
     public String toString() {
 
         return toString(StandardCharsets.UTF_8);

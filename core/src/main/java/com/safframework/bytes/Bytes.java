@@ -43,6 +43,8 @@ public interface Bytes {
 
     Bytes or(byte[] bytes);
 
+    Bytes not(byte[] bytes);
+
     String toString(Charset charset);
 
     default String toHexString() {

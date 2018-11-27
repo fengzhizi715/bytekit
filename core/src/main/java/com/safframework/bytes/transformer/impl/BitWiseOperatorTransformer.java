@@ -8,7 +8,7 @@ import com.safframework.bytes.transformer.BytesTransformer;
 public class BitWiseOperatorTransformer implements BytesTransformer {
 
     public enum Mode {
-        AND, OR, XOR
+        AND, OR, XOR, NOT
     }
 
     private byte[] bytes;
@@ -40,6 +40,10 @@ public class BitWiseOperatorTransformer implements BytesTransformer {
 
                 case XOR:
                     result[i] = (byte) (currentArray[i] ^ bytes[i]);
+                    break;
+
+                case NOT:
+                    result[i] = (byte) ~currentArray[i];
                     break;
 
                 default:
