@@ -1,5 +1,6 @@
 package com.safframework.bytes.transformer.impl;
 
+import com.safframework.bytes.exception.BytesException;
 import com.safframework.bytes.transformer.BytesTransformer;
 
 /**
@@ -25,7 +26,7 @@ public class BitWiseOperatorTransformer implements BytesTransformer {
 
         if (currentArray.length != bytes.length) {
 
-            throw new IllegalArgumentException("all byte array must be of same length doing bit wise operation");
+            throw new BytesException("all byte array must be of same length doing bit wise operation");
         }
 
         byte[] result = new byte[currentArray.length];
