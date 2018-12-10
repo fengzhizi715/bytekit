@@ -4,7 +4,6 @@ import com.safframework.bytes.AbstractBytes;
 import com.safframework.bytes.Bytes;
 import com.safframework.bytes.exception.BytesException;
 import com.safframework.bytes.transformer.BytesTransformer;
-import com.safframework.bytes.transformer.impl.MessageDigestTransformer;
 import com.safframework.tony.common.utils.IOUtils;
 
 import java.io.*;
