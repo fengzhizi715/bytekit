@@ -2,6 +2,7 @@ package com.safframework.bytes.jdk;
 
 import com.safframework.bytes.AbstractBytes;
 import com.safframework.bytes.Bytes;
+import com.safframework.bytes.exception.BytesException;
 import com.safframework.bytes.transformer.BytesTransformer;
 import com.safframework.tony.common.utils.IOUtils;
 
@@ -31,10 +32,10 @@ public class ByteArrayBytes extends AbstractBytes {
     public ByteArrayBytes(final byte[] bytes, int offset, int length) {
 
         if (offset < 0 || offset > bytes.length) {
-            throw new IllegalArgumentException("Invalid offset: " + offset + " for array of length: " + bytes.length);
+            throw new BytesException("Invalid offset: " + offset + " for array of length: " + bytes.length);
         }
         if (length < 0 || length + offset > bytes.length) {
-            throw new IllegalArgumentException("Invalid length: " + length + " for array of length: " + bytes.length + " and offset: " + offset);
+            throw new BytesException("Invalid length: " + length + " for array of length: " + bytes.length + " and offset: " + offset);
         }
 
         this.bytes = bytes;
