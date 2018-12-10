@@ -1,6 +1,7 @@
 package com.safframework.bytes;
 
 import com.safframework.bytes.transformer.BytesTransformer;
+import com.safframework.bytes.transformer.impl.MessageDigestTransformer;
 
 import java.io.InputStream;
 import java.nio.ByteBuffer;
@@ -55,5 +56,20 @@ public interface Bytes {
             result[i * 2 + 1] = Constants.HEX_ARRAY[(arr[i] & 0xF)];
         }
         return new String(result);
+    }
+
+    default Bytes md5() {
+
+        return transform(new MessageDigestTransformer("MD5"));
+    }
+
+    default Bytes sha1() {
+
+        return transform(new MessageDigestTransformer("SHA-1"));
+    }
+
+    default Bytes sha256() {
+
+        return transform(new MessageDigestTransformer("SHA-256"));
     }
 }
