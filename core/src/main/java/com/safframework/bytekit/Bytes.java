@@ -1,7 +1,7 @@
-package com.safframework.bytes;
+package com.safframework.bytekit;
 
-import com.safframework.bytes.transformer.BytesTransformer;
-import com.safframework.bytes.transformer.impl.MessageDigestTransformer;
+import com.safframework.bytekit.transformer.BytesTransformer;
+import com.safframework.bytekit.transformer.impl.MessageDigestTransformer;
 
 import java.io.InputStream;
 import java.nio.ByteBuffer;

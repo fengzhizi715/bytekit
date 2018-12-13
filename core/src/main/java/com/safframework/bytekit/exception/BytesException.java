@@ -1,4 +1,4 @@
-package com.safframework.bytes.exception;
+package com.safframework.bytekit.exception;
 
 /**
  * Created by tony on 2018-12-10.
