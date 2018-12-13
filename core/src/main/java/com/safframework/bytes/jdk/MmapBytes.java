@@ -48,7 +48,8 @@ public class MmapBytes extends AbstractBytes {
 
     @Override
     public Bytes empty() {
-        return null;
+
+        return new ByteBufferBytes(ByteBuffer.wrap(new byte[0]));
     }
 
     /**
