@@ -5,8 +5,12 @@ import com.safframework.bytes.Bytes;
 import com.safframework.bytes.exception.BytesException;
 import com.safframework.bytes.transformer.BytesTransformer;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Method;
 import java.nio.ByteBuffer;
+import java.nio.MappedByteBuffer;
 import java.nio.charset.Charset;
 
 /**
@@ -49,36 +53,86 @@ public class MmapBytes extends AbstractBytes {
 
     @Override
     public int size() {
-        return 0;
+
+        return buffer.getMappedByteBuffer().position();
     }
 
     @Override
     public byte byteAt(int index) {
-        return 0;
+
+        return buffer.getMappedByteBuffer().get(index);
     }
 
     @Override
     public byte[] toByteArray() {
-        return new byte[0];
+
+        byte[] dest = new byte[size()];
+        toReadOnlyBuffer().get(dest);
+        return dest;
     }
 
     @Override
     public ByteBuffer toReadOnlyBuffer() {
-        return null;
+
+        return buffer.getMappedByteBuffer().asReadOnlyBuffer();
     }
 
     @Override
     public InputStream newInputStream() {
-        return null;
+
+        return new ByteArrayInputStream(toByteArray());
     }
 
     @Override
     public Bytes transform(BytesTransformer transformer) {
-        return null;
+
+        byte[] newBytes = transformer.transform(toByteArray());
+
+        return new ByteBufferBytes(newBytes);
     }
 
     @Override
     public String toString(Charset charset) {
-        return null;
+
+        return new String(toByteArray(), charset);
+    }
+
+    public void clear() {
+
+        if (buffer!=null) {
+
+            unmap(buffer.getMappedByteBuffer());
+            close();
+        }
+    }
+
+    public void close(){
+
+        try {
+            buffer.getRandomAccessFile().close();
+            buffer.getMappedByteBuffer().clear();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 解除内存与文件的映射
+     * @param mbb
+     */
+    private void unmap(MappedByteBuffer mbb) {
+
+        if (mbb == null) {
+            return;
+        }
+
+        try {
+            Class<?> clazz = Class.forName("sun.nio.ch.FileChannelImpl");
+            Method m = clazz.getDeclaredMethod("unmap", MappedByteBuffer.class);
+            m.setAccessible(true);
+            m.invoke(null, mbb);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
     }
 }
