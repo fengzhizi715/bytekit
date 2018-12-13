@@ -4,6 +4,7 @@ import com.safframework.bytes.AbstractBytes;
 import com.safframework.bytes.Bytes;
 import com.safframework.bytes.exception.BytesException;
 import com.safframework.bytes.transformer.BytesTransformer;
+import com.safframework.bytes.transformer.impl.ConcatTransformer;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -132,5 +133,16 @@ public class MmapBytes extends AbstractBytes {
         } catch (Throwable e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public Bytes contact(byte[] bytes) {
+
+        try {
+            this.require(bytes.length);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return super.contact(bytes);
     }
 }
