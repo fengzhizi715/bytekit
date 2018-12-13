@@ -20,8 +20,6 @@ public class MmapBytes extends AbstractBytes {
 
     private MmapBuffer buffer = null;
 
-    private int position = 0;
-
     public MmapBytes(String file,Long mapSize) {
 
         this.buffer = new MmapBuffer(file,mapSize);
