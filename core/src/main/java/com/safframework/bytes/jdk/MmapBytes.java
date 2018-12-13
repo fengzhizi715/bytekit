@@ -4,7 +4,6 @@ import com.safframework.bytes.AbstractBytes;
 import com.safframework.bytes.Bytes;
 import com.safframework.bytes.exception.BytesException;
 import com.safframework.bytes.transformer.BytesTransformer;
-import com.safframework.bytes.transformer.impl.ConcatTransformer;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -20,6 +19,8 @@ import java.nio.charset.Charset;
 public class MmapBytes extends AbstractBytes {
 
     private MmapBuffer buffer = null;
+
+    private int position = 0; // current the position for reader
 
     public MmapBytes(String file,Long mapSize) {
 
@@ -48,6 +49,79 @@ public class MmapBytes extends AbstractBytes {
     @Override
     public Bytes empty() {
         return null;
+    }
+
+    /**
+     * get current the position
+     * @return
+     */
+    public int getReaderPosition(){
+        return position;
+    }
+
+    /**
+     * get write position
+     * @return
+     */
+    public int getWriterPosition(){
+        return this.buffer.getMappedByteBuffer().position();
+    }
+
+    public void writeByte(byte b) throws Exception {
+        this.require(1);
+        this.buffer.getMappedByteBuffer().put(b);
+    }
+
+    public byte readByte() {
+        byte b = this.buffer.getMappedByteBuffer().get(position);
+        position ++;
+        return b;
+    }
+
+    public void writeBytes(byte[] bytes) throws Exception {
+        this.require(bytes.length);
+        this.buffer.getMappedByteBuffer().put(bytes);
+    }
+
+    public byte[] readBytes(int byteCount) {
+        byte[] bytes = new byte[byteCount];
+        for( int i = 0; i < byteCount; i ++ ){
+            bytes[i] = readByte();
+        }
+        return bytes;
+    }
+
+    public void writeInt(int i) throws Exception {
+        this.require(4);
+        this.buffer.getMappedByteBuffer().putInt(i);
+    }
+
+    public int readInt() {
+        int i = this.buffer.getMappedByteBuffer().getInt(position);
+        position += 4;
+        return i;
+    }
+
+    public void writeDouble(double d) throws Exception {
+        this.require(8);
+        this.buffer.getMappedByteBuffer().putDouble(d);
+    }
+
+    public double readDouble() {
+        double d = this.buffer.getMappedByteBuffer().getDouble(position);
+        position += 8;
+        return d;
+    }
+
+    public void writeLong(long l) throws Exception {
+        this.require(8);
+        this.buffer.getMappedByteBuffer().putLong(l);
+    }
+
+    public long readLong() {
+        long l = this.buffer.getMappedByteBuffer().getLong(position);
+        position += 8;
+        return l;
     }
 
     @Override
