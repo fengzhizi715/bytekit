@@ -6,6 +6,7 @@ import com.safframework.bytes.transformer.impl.CopyTransformer;
 import com.safframework.bytes.transformer.impl.ReverseTransformer;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 
 /**
  * Created by tony on 2018/11/19.
@@ -58,6 +59,11 @@ public abstract class AbstractBytes implements Bytes {
     public Bytes not(byte[] bytes) {
 
         return transform(new BitWiseOperatorTransformer(bytes, BitWiseOperatorTransformer.Mode.NOT));
+    }
+
+    public byte[] encodeBase64() {
+
+        return Base64.getEncoder().encode(toByteArray());
     }
 
     @Override

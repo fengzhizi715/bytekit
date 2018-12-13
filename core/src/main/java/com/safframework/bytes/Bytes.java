@@ -6,6 +6,7 @@ import com.safframework.bytes.transformer.impl.MessageDigestTransformer;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
+import java.util.Base64;
 
 /**
  * Created by tony on 2018/11/19.
@@ -71,5 +72,10 @@ public interface Bytes {
     default Bytes sha256() {
 
         return transform(new MessageDigestTransformer("SHA-256"));
+    }
+
+    static byte[] parseBase64(String base64) {
+
+        return Base64.getDecoder().decode(base64);
     }
 }
