@@ -11,3 +11,4 @@
 * 支持 Transformer: 内置 copy、contact、reverse、xor、and、or、not
 * 支持 Hash: 内置 md5、sha1、sha256 
 * 支持 mmap 常用读写操作：readByte/writeByte、readBytes/writeBytes、readInt/writeInt、readLong/writeLong、readDouble/writeDouble
+* 不依赖任何第三方库

@@ -4,7 +4,7 @@ import com.safframework.bytekit.AbstractBytes;
 import com.safframework.bytekit.Bytes;
 import com.safframework.bytekit.exception.BytesException;
 import com.safframework.bytekit.transformer.BytesTransformer;
-import com.safframework.tony.common.utils.IOUtils;
+import com.safframework.bytekit.utils.IOUtils;
 
 import java.io.*;
 import java.nio.ByteBuffer;

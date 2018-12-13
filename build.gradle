@@ -2,12 +2,6 @@ plugins {
     id 'java'
 }
 
-ext {
-    libraries = [
-            tony_common_utils         : "1.2.6"
-    ]
-}
-
 group 'com.safframework.bytes'
 version '1.0-SNAPSHOT'
 
