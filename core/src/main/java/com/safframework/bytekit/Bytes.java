@@ -3,6 +3,7 @@ package com.safframework.bytekit;
 import com.safframework.bytekit.transformer.BytesTransformer;
 import com.safframework.bytekit.transformer.impl.MessageDigestTransformer;
 import com.safframework.bytekit.utils.IOUtils;
+import com.safframework.bytekit.utils.Preconditions;
 
 import java.io.*;
 import java.nio.ByteBuffer;
@@ -117,11 +118,16 @@ public interface Bytes {
      */
     static byte[] getByteArray(String hexString) {
 
+        if (Preconditions.isBlank(hexString)) {
+            return null;
+        }
+
         byte[] result = new byte[hexString.length() / 2];
         int j = 0;
         char c0;
         char c1;
         for (int i = 0; i < result.length; i++) {
+
             c0 = hexString.charAt(j++);
             c1 = hexString.charAt(j++);
             result[i] = (byte) ((parse(c0) << 4) | parse(c1));
@@ -183,7 +189,7 @@ public interface Bytes {
     }
 
     /**
-     * 通过序列化实现对象的深拷贝
+     * 通过序列化/反序列化实现对象的深拷贝
      * @param obj
      * @param <T>
      * @return
