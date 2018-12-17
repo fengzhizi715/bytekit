@@ -9,6 +9,8 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.util.Base64;
 
+import static com.safframework.bytekit.utils.Utils.parse;
+
 /**
  * Created by tony on 2018/11/19.
  */
@@ -79,6 +81,10 @@ public interface Bytes {
         }
     }
 
+    /**
+     * 把Bytes转换成十六进制字符串
+     * @return
+     */
     default String toHexString() {
         byte[] arr = toByteArray();
         char[] result = new char[arr.length * 2];
@@ -102,6 +108,25 @@ public interface Bytes {
     default Bytes sha256() {
 
         return transform(new MessageDigestTransformer("SHA-256"));
+    }
+
+    /**
+     * 把十六进制字符串还原成字节数组
+     * @param hexString
+     * @return
+     */
+    static byte[] getByteArray(String hexString) {
+
+        byte[] result = new byte[hexString.length() / 2];
+        int j = 0;
+        char c0;
+        char c1;
+        for (int i = 0; i < result.length; i++) {
+            c0 = hexString.charAt(j++);
+            c1 = hexString.charAt(j++);
+            result[i] = (byte) ((parse(c0) << 4) | parse(c1));
+        }
+        return result;
     }
 
     /**
