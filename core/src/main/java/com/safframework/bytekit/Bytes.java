@@ -2,6 +2,7 @@ package com.safframework.bytekit;
 
 import com.safframework.bytekit.transformer.BytesTransformer;
 import com.safframework.bytekit.transformer.impl.MessageDigestTransformer;
+import com.safframework.bytekit.utils.IOUtils;
 
 import java.io.*;
 import java.nio.ByteBuffer;
@@ -50,6 +51,33 @@ public interface Bytes {
     Bytes not(byte[] bytes);
 
     String toString(Charset charset);
+
+    /**
+     * 写入到输出流
+     * @param out
+     */
+    default void toStream(OutputStream out) {
+
+        byte[] buffer;
+        if (size() < 4096) {
+            buffer = new byte[(int)size()];
+        } else {
+            buffer = new byte[4096];
+        }
+
+        InputStream in = newInputStream();
+        try {
+            int len;
+            while ((len = in.read(buffer)) != -1) {
+                out.write(buffer, 0, len);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+
+            IOUtils.closeQuietly(in);
+        }
+    }
 
     default String toHexString() {
         byte[] arr = toByteArray();
