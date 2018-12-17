@@ -61,6 +61,10 @@ public abstract class AbstractBytes implements Bytes {
         return transform(new BitWiseOperatorTransformer(bytes, BitWiseOperatorTransformer.Mode.NOT));
     }
 
+    /**
+     * 将当前的Bytes对象转换成base64的字节数组
+     * @return
+     */
     public byte[] encodeBase64() {
 
         return Base64.getEncoder().encode(toByteArray());

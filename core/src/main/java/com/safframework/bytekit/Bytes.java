@@ -13,6 +13,8 @@ import java.util.Base64;
  */
 public interface Bytes {
 
+    char[] HEX_ARRAY = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+
     default boolean isEmpty() {
         return size() == 0;
     }
@@ -53,8 +55,8 @@ public interface Bytes {
         byte[] arr = toByteArray();
         char[] result = new char[arr.length * 2];
         for (int i = 0; i < arr.length; ++i) {
-            result[i * 2] = Constants.HEX_ARRAY[(arr[i] >> 4) & 0xF];
-            result[i * 2 + 1] = Constants.HEX_ARRAY[(arr[i] & 0xF)];
+            result[i * 2] = HEX_ARRAY[(arr[i] >> 4) & 0xF];
+            result[i * 2 + 1] = HEX_ARRAY[(arr[i] & 0xF)];
         }
         return new String(result);
     }
@@ -74,6 +76,11 @@ public interface Bytes {
         return transform(new MessageDigestTransformer("SHA-256"));
     }
 
+    /**
+     * 将base64的字符串转换成字节数组
+     * @param base64
+     * @return
+     */
     static byte[] parseBase64(String base64) {
 
         return Base64.getDecoder().decode(base64);
