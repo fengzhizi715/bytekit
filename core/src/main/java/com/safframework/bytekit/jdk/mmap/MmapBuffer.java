@@ -1,4 +1,4 @@
-package com.safframework.bytekit.jdk;
+package com.safframework.bytekit.jdk.mmap;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
