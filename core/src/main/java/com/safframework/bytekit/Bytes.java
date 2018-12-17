@@ -122,6 +122,12 @@ public interface Bytes {
         return null;
     }
 
+    /**
+     * 通过序列化实现对象的深拷贝
+     * @param obj
+     * @param <T>
+     * @return
+     */
     static <T> T cloneObject(T obj) {
         
         return (T) deserialize(serialize(obj));
