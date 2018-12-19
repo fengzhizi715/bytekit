@@ -157,11 +157,8 @@ public interface Bytes {
         } catch (IOException e) {
             System.err.println(e);
         } finally {
-            try {
-                fos.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+
+            IOUtils.closeQuietly(fos);
         }
 
         return result;
@@ -179,10 +176,8 @@ public interface Bytes {
         } catch (ClassNotFoundException e) {
             System.err.println(e);
         } finally {
-            try {
-                fis.close();
-            } catch (Exception e) {
-            }
+
+            IOUtils.closeQuietly(fis);
         }
 
         return null;
