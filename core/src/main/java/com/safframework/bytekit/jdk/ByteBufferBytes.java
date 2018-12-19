@@ -17,7 +17,7 @@ public class ByteBufferBytes extends AbstractBytes {
 
     private static final ByteBufferBytes EMPTY = new ByteBufferBytes(ByteBuffer.wrap(new byte[0]));
 
-    private final ByteBuffer buffer;
+    private ByteBuffer buffer;
 
     public ByteBufferBytes(final byte[] bytes) {
 
@@ -119,5 +119,10 @@ public class ByteBufferBytes extends AbstractBytes {
     public String toString(Charset charset) {
 
         return new String(toByteArray(), charset);
+    }
+
+    @Override
+    public void free() {
+        buffer = null;
     }
 }

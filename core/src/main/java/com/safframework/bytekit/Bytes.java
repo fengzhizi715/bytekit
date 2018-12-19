@@ -55,6 +55,8 @@ public interface Bytes {
 
     String toString(Charset charset);
 
+    void free();
+
     /**
      * 写入到输出流
      * @param out

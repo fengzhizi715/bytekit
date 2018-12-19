@@ -16,13 +16,13 @@ import java.nio.charset.StandardCharsets;
  */
 public class ByteArrayBytes extends AbstractBytes {
 
-    private final static ByteArrayBytes EMPTY = new ByteArrayBytes(new byte[0]);
+    private static ByteArrayBytes EMPTY = new ByteArrayBytes(new byte[0]);
 
-    private final byte[] bytes;
+    private byte[] bytes;
 
-    private final int offset;
+    private int offset;
 
-    private final int length;
+    private int length;
 
     public ByteArrayBytes(byte[] bytes) {
 
@@ -135,6 +135,12 @@ public class ByteArrayBytes extends AbstractBytes {
     public String toString(Charset charset) {
 
         return new String(bytes, offset, length, charset);
+    }
+
+    @Override
+    public void free() {
+
+        bytes = null;
     }
 
 
