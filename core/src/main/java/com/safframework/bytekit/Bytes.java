@@ -166,11 +166,11 @@ public interface Bytes {
         return result;
     }
 
-    static Object deserialize(byte[] arr) {
+    static Object deserialize(byte[] bytes) {
         InputStream fis = null;
 
         try {
-            fis = new ByteArrayInputStream(arr);
+            fis = new ByteArrayInputStream(bytes);
             ObjectInputStream o = new ObjectInputStream(fis);
             return o.readObject();
         } catch (IOException e) {

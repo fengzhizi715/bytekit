@@ -126,6 +126,16 @@ public class MmapBytes extends AbstractBytes {
         return l;
     }
 
+    public void writeObject(Object obj) throws Exception {
+        byte[] bytes = Bytes.serialize(obj);
+        writeBytes(bytes);
+    }
+
+    public Object readObject(int byteCount) {
+        byte[] bytes = readBytes(byteCount);
+        return Bytes.deserialize(bytes);
+    }
+
     @Override
     public int size() {
 
