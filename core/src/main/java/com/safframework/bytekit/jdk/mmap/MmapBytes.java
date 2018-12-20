@@ -182,7 +182,7 @@ public class MmapBytes extends AbstractBytes {
         }
     }
 
-    public void close(){
+    private void close(){
 
         try {
             buffer.getRandomAccessFile().close();
