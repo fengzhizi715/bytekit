@@ -58,7 +58,7 @@ public interface Bytes {
     void free();
 
     /**
-     * 写入到输出流
+     * 将Bytes写入到输出流
      * @param out
      */
     default void toStream(OutputStream out) {
@@ -98,16 +98,28 @@ public interface Bytes {
         return new String(result);
     }
 
+    /**
+     * 使用md5加密
+     * @return
+     */
     default Bytes md5() {
 
         return transform(new MessageDigestTransformer("MD5"));
     }
 
+    /**
+     * 使用sha1加密
+     * @return
+     */
     default Bytes sha1() {
 
         return transform(new MessageDigestTransformer("SHA-1"));
     }
 
+    /**
+     * 使用sha256加密
+     * @return
+     */
     default Bytes sha256() {
 
         return transform(new MessageDigestTransformer("SHA-256"));
@@ -138,7 +150,7 @@ public interface Bytes {
     }
 
     /**
-     * 将base64的字符串转换成字节数组
+     * 将base64的字符串转换成字节数组 (仅支持jdk 1.8以上)
      * @param base64
      * @return
      */
