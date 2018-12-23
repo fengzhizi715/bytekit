@@ -46,7 +46,6 @@ public class MmapBytes extends AbstractBytes {
         System.out.println("require " + byteCount + " byte(s),response " + response + " bytes");
     }
 
-
     @Override
     public Bytes empty() {
 
