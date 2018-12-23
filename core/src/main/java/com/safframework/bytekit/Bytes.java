@@ -159,6 +159,11 @@ public interface Bytes {
         return Base64.getDecoder().decode(base64);
     }
 
+    /**
+     * 序列化对象，转换成字节数组
+     * @param obj
+     * @return
+     */
     static byte[] serialize(Object obj) {
         byte[] result = null;
         ByteArrayOutputStream fos = null;
@@ -178,6 +183,11 @@ public interface Bytes {
         return result;
     }
 
+    /**
+     * 反序列化字节数字，转换成对象
+     * @param bytes
+     * @return
+     */
     static Object deserialize(byte[] bytes) {
         InputStream fis = null;
 
