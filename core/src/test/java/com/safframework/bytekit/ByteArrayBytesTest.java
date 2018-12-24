@@ -17,4 +17,20 @@ public class ByteArrayBytesTest {
 
         assertEquals(bytes.toString(), "hello world tony");
     }
+
+    @Test
+    public void testCopy() {
+
+        Bytes bytes = ByteArrayBytes.create("hello world").contact(" tony".getBytes());
+
+        assertEquals(bytes.toString(), bytes.copy().toString());
+    }
+
+    @Test
+    public void testReverse() {
+
+        Bytes bytes = ByteArrayBytes.create("hello world").contact(" tony".getBytes());
+
+        assertEquals(bytes.toString(), bytes.reverse().reverse().toString());
+    }
 }
