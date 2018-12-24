@@ -14,10 +14,12 @@ import static junit.framework.TestCase.assertEquals;
 public class MmapBytesTest {
 
     private MmapBytes mmapBytes;
+    private String file;
 
     @Before
     public void setUp() {
-        String file = "test";
+
+        file = "test";
         mmapBytes = new MmapBytes(file, (long) 1024 * 10); // 10M
     }
 
@@ -52,6 +54,21 @@ public class MmapBytesTest {
 
         assertEquals(u.name, temp.name);
         assertEquals(u.password, temp.password);
+    }
+
+    @Test
+    public void testFree() throws Exception {
+
+        mmapBytes.writeInt(12);
+        mmapBytes.writeInt(34);
+        mmapBytes.writeByte((byte) 5);
+
+        mmapBytes.free();
+
+        mmapBytes = new MmapBytes(file, (long) 1024 * 10); // 10M
+        mmapBytes.writeInt(67);
+
+        assertEquals(67, mmapBytes.readInt());
     }
 
     @After
