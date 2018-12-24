@@ -1,5 +1,6 @@
 package com.safframework.bytekit;
 
+import com.safframework.bytekit.jdk.ByteArrayBytes;
 import com.safframework.bytekit.jdk.ByteBufferBytes;
 import org.junit.Test;
 
@@ -32,6 +33,16 @@ public class ByteBufferBytesTest {
         Bytes bytes = ByteBufferBytes.create("hello world").contact(" tony".getBytes());
 
         assertEquals(bytes.toString(), bytes.reverse().reverse().toString());
+    }
+
+    @Test
+    public void testBitWise() {
+
+        ByteArrayBytes bytes = (ByteArrayBytes)ByteArrayBytes.create("hello world").contact(" tony".getBytes());
+
+        assertEquals(bytes.toString(), bytes.and(bytes.toByteArray()).or(bytes.toByteArray()).toString());
+        assertEquals(bytes.toString(), bytes.not(bytes.toByteArray()).not(bytes.toByteArray()).toString());
+        assertEquals(bytes.toString(), bytes.xor(bytes.toByteArray()).xor(bytes.toByteArray()).toString()); //两次xor 返回本身
     }
 
     @Test

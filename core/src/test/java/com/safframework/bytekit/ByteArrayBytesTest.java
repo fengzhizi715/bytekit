@@ -35,6 +35,16 @@ public class ByteArrayBytesTest {
     }
 
     @Test
+    public void testBitWise() {
+
+        ByteArrayBytes bytes = (ByteArrayBytes)ByteArrayBytes.create("hello world").contact(" tony".getBytes());
+
+        assertEquals(bytes.toString(), bytes.and(bytes.toByteArray()).or(bytes.toByteArray()).toString());
+        assertEquals(bytes.toString(), bytes.not(bytes.toByteArray()).not(bytes.toByteArray()).toString());
+        assertEquals(bytes.toString(), bytes.xor(bytes.toByteArray()).xor(bytes.toByteArray()).toString()); //两次xor 返回本身
+    }
+
+    @Test
     public void testBase64() {
 
         ByteArrayBytes bytes = (ByteArrayBytes)ByteArrayBytes.create("hello world").contact(" tony".getBytes());
