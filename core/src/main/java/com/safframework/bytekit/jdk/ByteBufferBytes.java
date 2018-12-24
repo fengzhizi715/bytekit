@@ -13,11 +13,11 @@ import java.nio.charset.StandardCharsets;
 /**
  * Created by tony on 2018/11/20.
  */
-public class ByteBufferBytes extends AbstractBytes {
+public final class ByteBufferBytes extends AbstractBytes {
 
-    private static final ByteBufferBytes EMPTY = new ByteBufferBytes(ByteBuffer.wrap(new byte[0]));
+    private final static ByteBufferBytes EMPTY = new ByteBufferBytes(ByteBuffer.wrap(new byte[0]));
 
-    private ByteBuffer buffer;
+    private final ByteBuffer buffer;
 
     public ByteBufferBytes(final byte[] bytes) {
 
@@ -121,8 +121,8 @@ public class ByteBufferBytes extends AbstractBytes {
         return new String(toByteArray(), charset);
     }
 
-    @Override
-    public void free() {
-        buffer = null;
-    }
+//    @Override
+//    public void free() {
+//        buffer = null;
+//    }
 }
