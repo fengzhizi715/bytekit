@@ -14,3 +14,9 @@
 * 支持 mmap 常用读写操作：readByte/writeByte、readBytes/writeBytes、readInt/writeInt、readLong/writeLong、readDouble/writeDouble
 * 支持对象的序列化、反序列化、深拷贝
 * 不依赖任何第三方库
+
+# 下载：
+
+```groovy
+implementation 'com.safframework.bytekit:bytekit:1.0.1'
+```
