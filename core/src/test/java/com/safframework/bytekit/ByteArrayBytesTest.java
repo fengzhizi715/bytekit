@@ -33,4 +33,12 @@ public class ByteArrayBytesTest {
 
         assertEquals(bytes.toString(), bytes.reverse().reverse().toString());
     }
+
+    @Test
+    public void testBase64() {
+
+        ByteArrayBytes bytes = (ByteArrayBytes)ByteArrayBytes.create("hello world").contact(" tony".getBytes());
+
+        assertEquals(bytes.toString(), new String(Bytes.parseBase64(new String(bytes.encodeBase64()))));
+    }
 }
