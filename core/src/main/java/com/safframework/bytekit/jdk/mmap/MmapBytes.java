@@ -180,8 +180,7 @@ public class MmapBytes extends AbstractBytes {
 
         return new String(toByteArray(), charset);
     }
-//
-//    @Override
+
     public void free() {
 
         if (buffer!=null) {

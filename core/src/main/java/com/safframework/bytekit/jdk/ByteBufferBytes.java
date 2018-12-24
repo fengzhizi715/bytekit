@@ -120,9 +120,4 @@ public final class ByteBufferBytes extends AbstractBytes {
 
         return new String(toByteArray(), charset);
     }
-
-//    @Override
-//    public void free() {
-//        buffer = null;
-//    }
 }

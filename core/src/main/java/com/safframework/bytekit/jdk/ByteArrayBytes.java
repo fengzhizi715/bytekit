@@ -136,10 +136,4 @@ public final class ByteArrayBytes extends AbstractBytes {
 
         return new String(bytes, offset, length, charset);
     }
-
-//    @Override
-//    public void free() {
-//
-//        bytes = null;
-//    }
 }
