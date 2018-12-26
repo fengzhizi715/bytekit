@@ -54,5 +54,6 @@ public class BytesTest {
         System.out.println(u);
         System.out.println(newUser);
         assertNotSame(u,newUser);
+        assertNotSame(u.name,newUser.name);
     }
 }
