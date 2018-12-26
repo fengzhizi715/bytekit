@@ -9,7 +9,7 @@
 * 支持多种方式创建 Bytes
 * 支持字节数组、ByteBuffer 的操作
 * 支持 Immutable 对象：ByteArrayBytes、ByteBufferBytes
-* 支持 Transformer: 内置 copy、contact、reverse、xor、and、or、not
+* 支持 Transformer: 内置 copy、contact、reverse、xor、and、or、not，也支持自定义 Transformer
 * 支持 Hash: 内置 md5、sha1、sha256
 * 支持转换成16进制字符串
 * 支持 mmap 常用读写操作：readByte/writeByte、readBytes/writeBytes、readInt/writeInt、readLong/writeLong、readDouble/writeDouble、readObject/writeObject
