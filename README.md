@@ -21,3 +21,5 @@
 ```groovy
 implementation 'com.safframework.bytekit:bytekit:1.0.1'
 ```
+
+详见：https://www.jianshu.com/p/411462b481b7
