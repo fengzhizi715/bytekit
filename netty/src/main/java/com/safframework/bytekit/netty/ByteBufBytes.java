@@ -17,6 +17,8 @@ import java.nio.charset.Charset;
  */
 public final class ByteBufBytes extends AbstractBytes {
 
+    private final static ByteBufBytes EMPTY = new ByteBufBytes(new byte[0]);
+
     private final ByteBuf byteBuf;
 
     public ByteBufBytes(final byte[] bytes) {
@@ -26,7 +28,7 @@ public final class ByteBufBytes extends AbstractBytes {
 
     @Override
     public Bytes empty() {
-        return null;
+        return ByteBufBytes.EMPTY;
     }
 
     @Override
