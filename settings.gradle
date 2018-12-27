@@ -1,3 +1,4 @@
 rootProject.name = 'bytes'
 include 'core'
+include 'mmap'
 

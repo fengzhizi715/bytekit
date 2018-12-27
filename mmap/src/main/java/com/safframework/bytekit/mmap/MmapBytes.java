@@ -1,4 +1,4 @@
-package com.safframework.bytekit.jdk.mmap;
+package com.safframework.bytekit.mmap;
 
 import com.safframework.bytekit.AbstractBytes;
 import com.safframework.bytekit.Bytes;

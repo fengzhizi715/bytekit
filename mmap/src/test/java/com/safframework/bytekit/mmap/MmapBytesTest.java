@@ -1,7 +1,6 @@
-package com.safframework.bytekit;
+package com.safframework.bytekit.mmap;
 
-import com.safframework.bytekit.domain.User;
-import com.safframework.bytekit.jdk.mmap.MmapBytes;
+import com.safframework.bytekit.mmap.domain.User;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -50,7 +49,7 @@ public class MmapBytesTest {
 
         mmapBytes.writeObject(u);
 
-        User temp = (User)mmapBytes.readObject(117);
+        User temp = (User)mmapBytes.readObject(122);
 
         assertEquals(u.name, temp.name);
         assertEquals(u.password, temp.password);
