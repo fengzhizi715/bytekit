@@ -84,6 +84,11 @@ public final class ByteArrayBytes extends AbstractBytes {
         return create(sequence.toString().getBytes(charset));
     }
 
+    public static ByteArrayBytes create(ByteBuffer byteBuffer) {
+
+        return new ByteArrayBytes(byteBuffer.array());
+    }
+
     public static ByteArrayBytes create(byte[] bytes) {
 
         return new ByteArrayBytes(bytes);
