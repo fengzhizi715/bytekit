@@ -1,4 +1,4 @@
-package com.safframework.bytekit.jdk;
+package com.safframework.bytekit.bytes;
 
 import com.safframework.bytekit.AbstractBytes;
 import com.safframework.bytekit.Bytes;

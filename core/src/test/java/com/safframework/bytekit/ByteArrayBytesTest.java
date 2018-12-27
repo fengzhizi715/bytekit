@@ -1,6 +1,6 @@
 package com.safframework.bytekit;
 
-import com.safframework.bytekit.jdk.ByteArrayBytes;
+import com.safframework.bytekit.bytes.ByteArrayBytes;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;

@@ -3,7 +3,7 @@ package com.safframework.bytekit.mmap;
 import com.safframework.bytekit.AbstractBytes;
 import com.safframework.bytekit.Bytes;
 import com.safframework.bytekit.exception.BytesException;
-import com.safframework.bytekit.jdk.ByteBufferBytes;
+import com.safframework.bytekit.bytes.ByteBufferBytes;
 import com.safframework.bytekit.transformer.BytesTransformer;
 
 import java.io.ByteArrayInputStream;
