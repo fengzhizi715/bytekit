@@ -5,6 +5,7 @@ import com.safframework.bytekit.Bytes;
 import com.safframework.bytekit.exception.BytesException;
 import com.safframework.bytekit.bytes.ByteBufferBytes;
 import com.safframework.bytekit.transformer.BytesTransformer;
+import com.safframework.bytekit.utils.Utils;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -20,12 +21,32 @@ import java.nio.charset.Charset;
 public class MmapBytes extends AbstractBytes {
 
     private MmapBuffer buffer = null;
+    private String file;
 
     private int position = 0; // current the position for reader
 
     public MmapBytes(String file,Long mapSize) {
 
+        this.file = file;
         this.buffer = new MmapBuffer(file,mapSize);
+
+        System.out.println("initializer with " + mapSize + " bytes map buffer");
+    }
+
+    public void remap(Long mapSize) {
+
+        ByteBuffer byteBuffer = Utils.cloneByteBuffer(buffer.getMappedByteBuffer());
+        buffer.getMappedByteBuffer().clear();
+
+        free();
+
+        this.buffer = new MmapBuffer(file,mapSize);
+
+        try {
+            writeBytes(byteBuffer.array());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         System.out.println("initializer with " + mapSize + " bytes map buffer");
     }

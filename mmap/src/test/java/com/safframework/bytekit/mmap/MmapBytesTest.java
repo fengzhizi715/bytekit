@@ -70,6 +70,18 @@ public class MmapBytesTest {
         assertEquals(67, mmapBytes.readInt());
     }
 
+    @Test
+    public void testRemap() throws Exception {
+
+        mmapBytes.writeInt(12);
+        mmapBytes.writeInt(34);
+
+        mmapBytes = new MmapBytes(file, (long) 1024 * 20); // 20M
+
+        assertEquals(12, mmapBytes.readInt());
+        assertEquals(34, mmapBytes.readInt());
+    }
+
     @After
     public void tearDown() {
         mmapBytes.free();
