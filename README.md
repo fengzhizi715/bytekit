@@ -28,13 +28,13 @@ bytekit-mmap|[ ![Download](https://api.bintray.com/packages/fengzhizi715/maven/b
 bytekit-core
 
 ```groovy
-implementation 'com.safframework.bytekit:bytekit-core:1.1.0'
+implementation 'com.safframework.bytekit:bytekit-core:1.2.0'
 ```
 
 bytekit-mmap
 
 ```groovy
-implementation 'com.safframework.bytekit:bytekit-mmap:1.1.0'
+implementation 'com.safframework.bytekit:bytekit-mmap:1.2.0'
 ```
 
 详见：https://www.jianshu.com/p/411462b481b7
