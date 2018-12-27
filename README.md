@@ -13,7 +13,7 @@
 * 支持转换成16进制字符串
 * 支持 mmap 常用读写操作：readByte/writeByte、readBytes/writeBytes、readInt/writeInt、readLong/writeLong、readDouble/writeDouble、readObject/writeObject
 * 支持对象的序列化、反序列化、深拷贝
-* 不依赖任何第三方库
+* core、mmap模块不依赖任何第三方库
 
 # 最新版本
 
