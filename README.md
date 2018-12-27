@@ -19,8 +19,8 @@
 
 模块|最新版本
 ---|:-------------:
-bytekit-core||
-bytekit-mmap||
+bytekit-core|[ ![Download](https://api.bintray.com/packages/fengzhizi715/maven/bytekit-core/images/download.svg) ](https://bintray.com/fengzhizi715/maven/bytekit-core/_latestVersion)|
+bytekit-mmap|[ ![Download](https://api.bintray.com/packages/fengzhizi715/maven/bytekit-mmap/images/download.svg) ](https://bintray.com/fengzhizi715/maven/bytekit-mmap/_latestVersion)|
 
 # 下载：
 
