@@ -181,17 +181,18 @@ public interface Bytes {
     static byte[] serialize(Object obj) {
         byte[] result = null;
         ByteArrayOutputStream fos = null;
+        ObjectOutputStream o = null;
 
         try {
             fos = new ByteArrayOutputStream();
-            ObjectOutputStream o = new ObjectOutputStream(fos);
+            o = new ObjectOutputStream(fos);
             o.writeObject(obj);
             result = fos.toByteArray();
         } catch (IOException e) {
             System.err.println(e);
         } finally {
 
-            IOUtils.closeQuietly(fos);
+            IOUtils.closeQuietly(fos,o);
         }
 
         return result;
@@ -204,10 +205,11 @@ public interface Bytes {
      */
     static Object deserialize(byte[] bytes) {
         InputStream fis = null;
+        ObjectInputStream o = null;
 
         try {
             fis = new ByteArrayInputStream(bytes);
-            ObjectInputStream o = new ObjectInputStream(fis);
+            o = new ObjectInputStream(fis);
             return o.readObject();
         } catch (IOException e) {
             System.err.println(e);
@@ -215,7 +217,7 @@ public interface Bytes {
             System.err.println(e);
         } finally {
 
-            IOUtils.closeQuietly(fis);
+            IOUtils.closeQuietly(fis,o);
         }
 
         return null;
