@@ -10,10 +10,11 @@
 * 支持 Immutable 对象：ByteArrayBytes、ByteBufferBytes
 * 支持 Transformer: 内置 copy、contact、reverse、xor、and、or、not，也支持自定义 Transformer
 * 支持 Hash: 内置 md5、sha1、sha256
+* 支持 Hmac加密: 内置 HmacMD5、HmacSHA1、HmacSHA256
 * 支持转换成16进制字符串
 * 支持 mmap 常用读写操作：readByte/writeByte、readBytes/writeBytes、readInt/writeInt、readLong/writeLong、readDouble/writeDouble、readObject/writeObject
 * 支持对象的序列化、反序列化、深拷贝
-* core、mmap模块不依赖任何第三方库
+* core、mmap 模块不依赖于任何第三方库
 
 # 最新版本
 
