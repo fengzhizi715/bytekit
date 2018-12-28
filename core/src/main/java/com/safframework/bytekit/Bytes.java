@@ -1,6 +1,7 @@
 package com.safframework.bytekit;
 
 import com.safframework.bytekit.transformer.BytesTransformer;
+import com.safframework.bytekit.transformer.impl.HmacTransformer;
 import com.safframework.bytekit.transformer.impl.MessageDigestTransformer;
 import com.safframework.bytekit.utils.IOUtils;
 import com.safframework.bytekit.utils.Preconditions;
@@ -121,6 +122,21 @@ public interface Bytes {
     default Bytes sha256() {
 
         return transform(new MessageDigestTransformer("SHA-256"));
+    }
+
+    default Bytes hmacMD5(byte[] key) {
+
+        return transform(new HmacTransformer(key,"HmacMD5"));
+    }
+
+    default Bytes hmacSha1(byte[] key) {
+
+        return transform(new HmacTransformer(key,"HmacSHA1"));
+    }
+
+    default Bytes hmacSha256(byte[] key) {
+
+        return transform(new HmacTransformer(key,"HmacSHA256"));
     }
 
     /**
