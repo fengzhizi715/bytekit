@@ -48,7 +48,7 @@ public class MmapBytes extends AbstractBytes {
             e.printStackTrace();
         }
 
-        System.out.println("initializer with " + mapSize + " bytes map buffer");
+        System.out.println("re-map with " + mapSize + " bytes map buffer");
     }
 
     /**
