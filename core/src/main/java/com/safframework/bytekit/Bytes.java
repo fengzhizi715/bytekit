@@ -9,6 +9,7 @@ import com.safframework.bytekit.utils.Preconditions;
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
+import java.util.Arrays;
 import java.util.Base64;
 
 import static com.safframework.bytekit.utils.Utils.parse;
@@ -95,6 +96,22 @@ public interface Bytes {
             result[i * 2 + 1] = HEX_ARRAY[(arr[i] & 0xF)];
         }
         return new String(result);
+    }
+
+    /**
+     * 将16进制字符串转换为二进制byte[]
+     * @param hexStr
+     * @return
+     */
+    default byte[] parseHexStr2Byte(String hexStr) {
+        int len = (hexStr.length() / 2);
+        byte[] result = new byte[len];
+        char[] achar = hexStr.toCharArray();
+        for (int i = 0; i < len; i++) {
+            int pos = i * 2;
+            result[i] = (byte) ((byte)Arrays.binarySearch(HEX_ARRAY, achar[pos]) << 4 | (byte)Arrays.binarySearch(HEX_ARRAY, achar[pos + 1]));
+        }
+        return result;
     }
 
     /**
