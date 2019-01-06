@@ -9,7 +9,6 @@ import com.safframework.bytekit.utils.Preconditions;
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
-import java.util.Arrays;
 import java.util.Base64;
 
 import static com.safframework.bytekit.utils.Utils.parse;
@@ -141,7 +140,7 @@ public interface Bytes {
     }
 
     /**
-     * 把十六进制字符串还原成字节数组
+     * 把十六进制字符串还原成二进制字节数组
      * @param hexString
      * @return
      */
