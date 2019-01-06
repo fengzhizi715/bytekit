@@ -99,22 +99,6 @@ public interface Bytes {
     }
 
     /**
-     * 将16进制字符串转换为二进制byte[]
-     * @param hexStr
-     * @return
-     */
-    default byte[] parseHexStr2Byte(String hexStr) {
-        int len = (hexStr.length() / 2);
-        byte[] result = new byte[len];
-        char[] achar = hexStr.toCharArray();
-        for (int i = 0; i < len; i++) {
-            int pos = i * 2;
-            result[i] = (byte) ((byte)Arrays.binarySearch(HEX_ARRAY, achar[pos]) << 4 | (byte)Arrays.binarySearch(HEX_ARRAY, achar[pos + 1]));
-        }
-        return result;
-    }
-
-    /**
      * 使用md5加密
      * @return
      */
