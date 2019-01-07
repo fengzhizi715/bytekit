@@ -1,5 +1,6 @@
 package com.safframework.bytekit;
 
+import com.safframework.bytekit.bytes.ByteBufferBytes;
 import com.safframework.bytekit.transformer.BytesTransformer;
 import com.safframework.bytekit.transformer.impl.HmacTransformer;
 import com.safframework.bytekit.transformer.impl.MessageDigestTransformer;
@@ -9,6 +10,7 @@ import com.safframework.bytekit.utils.Preconditions;
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.util.Base64;
 
 import static com.safframework.bytekit.utils.Utils.parse;
@@ -80,6 +82,19 @@ public interface Bytes {
         } finally {
 
             IOUtils.closeQuietly(in);
+        }
+    }
+
+    /**
+     * 将Bytes写入到文件中
+     * @param file
+     */
+    default void toFile(File file) {
+
+        try {
+            Files.write(file.toPath(), toByteArray());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
