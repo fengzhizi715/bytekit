@@ -1,6 +1,5 @@
 package com.safframework.bytekit;
 
-import com.safframework.bytekit.bytes.ByteBufferBytes;
 import com.safframework.bytekit.transformer.BytesTransformer;
 import com.safframework.bytekit.transformer.impl.HmacTransformer;
 import com.safframework.bytekit.transformer.impl.MessageDigestTransformer;
