@@ -5,7 +5,7 @@
 
 # 功能特点：
 
-* 支持多种方式创建 Bytes
+* 支持多种方式创建 Bytes：byte数组、字符串、File、InputStream
 * 支持字节数组、ByteBuffer 的操作
 * 支持 Immutable 对象：ByteArrayBytes、ByteBufferBytes
 * 支持 Transformer: 内置 copy、contact、reverse、xor、and、or、not，也支持自定义 Transformer
