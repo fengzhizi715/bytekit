@@ -65,7 +65,7 @@ public final class ByteArrayBytes extends AbstractBytes {
 
         byte[] bytes = null;
         try {
-            bytes = IOUtils.readInputStream(inputStream);
+            bytes = IOUtils.readInputStream(inputStream); // inputStream 已经在readInputStream()中关闭了，所以无需再次关闭
         } catch (IOException e) {
             e.printStackTrace();
             bytes = new byte[0];

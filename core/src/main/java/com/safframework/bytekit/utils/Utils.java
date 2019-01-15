@@ -15,6 +15,11 @@ public class Utils {
         return (c - '0') & 0x0f;
     }
 
+    /**
+     * 克隆ByteBuffer
+     * @param original
+     * @return
+     */
     public static ByteBuffer cloneByteBuffer(ByteBuffer original) {
         ByteBuffer clone = ByteBuffer.allocate(original.capacity());
         original.rewind();//copy from the beginning
