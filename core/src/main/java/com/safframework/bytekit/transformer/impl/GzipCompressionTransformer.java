@@ -34,7 +34,7 @@ public class GzipCompressionTransformer implements BytesTransformer {
             gzipOutputStream.write(content);
             gzipOutputStream.close();
             returnBuffer = bos.toByteArray();
-            bos.close();
+
             return returnBuffer;
         } catch (Exception e) {
             throw new IllegalStateException("could not compress gzip", e);
@@ -51,7 +51,7 @@ public class GzipCompressionTransformer implements BytesTransformer {
         byte[] returnBuffer;
         try {
             int len;
-            byte[] buffer = new byte[4 * 1024];
+            byte[] buffer = new byte[4096];
             gzipInputStream = new GZIPInputStream(new ByteArrayInputStream(compressedContent));
 
             while ((len = gzipInputStream.read(buffer)) > 0) {
@@ -60,7 +60,7 @@ public class GzipCompressionTransformer implements BytesTransformer {
 
             gzipInputStream.close();
             returnBuffer = bos.toByteArray();
-            bos.close();
+
             return returnBuffer;
         } catch (Exception e) {
             throw new IllegalStateException("could not decompress gzip", e);

@@ -1,6 +1,7 @@
 package com.safframework.bytekit;
 
 import com.safframework.bytekit.transformer.BytesTransformer;
+import com.safframework.bytekit.transformer.impl.GzipCompressionTransformer;
 import com.safframework.bytekit.transformer.impl.HmacTransformer;
 import com.safframework.bytekit.transformer.impl.MessageDigestTransformer;
 import com.safframework.bytekit.utils.IOUtils;
@@ -56,6 +57,16 @@ public interface Bytes {
     Bytes not(byte[] bytes);
 
     String toString(Charset charset);
+
+    default Bytes compressGzip() {
+
+        return transform(new GzipCompressionTransformer(true));
+    }
+
+    default Bytes decompressGzip() {
+
+        return transform(new GzipCompressionTransformer(false));
+    }
 
     /**
      * 将Bytes写入到输出流
