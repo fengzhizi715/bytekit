@@ -8,12 +8,12 @@ import static junit.framework.TestCase.assertEquals;
 /**
  * Created by tony on 2019-02-26.
  */
-public class BufferBytesTest {
+public class ByteStringBytesTest {
 
     @Test
     public void testContact() {
 
-        Bytes bytes = new BufferBytes("hello world".getBytes()).contact(" tony".getBytes());
+        Bytes bytes = new ByteStringBytes("hello world".getBytes()).contact(" tony".getBytes());
 
         assertEquals(bytes.toString(), "hello world tony");
     }
@@ -21,7 +21,7 @@ public class BufferBytesTest {
     @Test
     public void testCopy() {
 
-        Bytes bytes = new BufferBytes("hello world".getBytes()).contact(" tony".getBytes());
+        Bytes bytes = new ByteStringBytes("hello world".getBytes()).contact(" tony".getBytes());
 
         assertEquals(bytes.toString(), bytes.copy().toString());
     }
@@ -29,7 +29,7 @@ public class BufferBytesTest {
     @Test
     public void testReverse() {
 
-        Bytes bytes = new BufferBytes("hello world".getBytes()).contact(" tony".getBytes());
+        Bytes bytes = new ByteStringBytes("hello world".getBytes()).contact(" tony".getBytes());
 
         assertEquals(bytes.toString(), bytes.reverse().reverse().toString());
     }
@@ -37,7 +37,7 @@ public class BufferBytesTest {
     @Test
     public void testBitWise() {
 
-        BufferBytes bytes = new BufferBytes("hello world".getBytes());
+        ByteStringBytes bytes = new ByteStringBytes("hello world".getBytes());
         bytes.contact(" tony".getBytes());
 
         assertEquals(bytes.toString(), bytes.and(bytes.toByteArray()).or(bytes.toByteArray()).toString());
@@ -48,7 +48,7 @@ public class BufferBytesTest {
     @Test
     public void testBase64() {
 
-        BufferBytes bytes = new BufferBytes("hello world".getBytes());
+        ByteStringBytes bytes = new ByteStringBytes("hello world".getBytes());
         bytes.contact(" tony".getBytes());
 
         String base64 = new String(bytes.encodeBase64());
@@ -58,7 +58,7 @@ public class BufferBytesTest {
     @Test
     public void testToByteArray() {
 
-        Bytes bytes = new BufferBytes("hello world".getBytes()).contact(" tony".getBytes());
+        Bytes bytes = new ByteStringBytes("hello world".getBytes()).contact(" tony".getBytes());
 
         assertEquals(bytes.toString(), new String(bytes.toByteArray()));
     }
