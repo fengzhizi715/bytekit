@@ -1,5 +1,6 @@
 package com.safframework.bytekit;
 
+import com.safframework.bytekit.config.Constants;
 import com.safframework.bytekit.transformer.BytesTransformer;
 import com.safframework.bytekit.transformer.impl.GzipCompressionTransformer;
 import com.safframework.bytekit.transformer.impl.HmacTransformer;
@@ -128,7 +129,7 @@ public interface Bytes {
      */
     default Bytes md5() {
 
-        return transform(new MessageDigestTransformer("MD5"));
+        return transform(new MessageDigestTransformer(Constants.MD5));
     }
 
     /**
@@ -137,7 +138,7 @@ public interface Bytes {
      */
     default Bytes sha1() {
 
-        return transform(new MessageDigestTransformer("SHA-1"));
+        return transform(new MessageDigestTransformer(Constants.SHA_1));
     }
 
     /**
@@ -146,22 +147,22 @@ public interface Bytes {
      */
     default Bytes sha256() {
 
-        return transform(new MessageDigestTransformer("SHA-256"));
+        return transform(new MessageDigestTransformer(Constants.SHA_256));
     }
 
     default Bytes hmacMD5(byte[] key) {
 
-        return transform(new HmacTransformer(key,"HmacMD5"));
+        return transform(new HmacTransformer(key,Constants.HMACMD5));
     }
 
     default Bytes hmacSha1(byte[] key) {
 
-        return transform(new HmacTransformer(key,"HmacSHA1"));
+        return transform(new HmacTransformer(key,Constants.HMACSHA1));
     }
 
     default Bytes hmacSha256(byte[] key) {
 
-        return transform(new HmacTransformer(key,"HmacSHA256"));
+        return transform(new HmacTransformer(key,Constants.HMACSHA256));
     }
 
     /**
