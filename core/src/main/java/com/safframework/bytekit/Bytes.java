@@ -23,7 +23,7 @@ public interface Bytes {
 
     char[] HEX_ARRAY = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
-    int length = 0x1000;
+    int length = 0x1000; // 4096
 
     default boolean isEmpty() {
         return size() == 0;
@@ -72,7 +72,7 @@ public interface Bytes {
     }
 
     /**
-     * 将Bytes写入到输出流
+     * 将 Bytes 写入到输出流
      * @param out
      */
     default void toStream(OutputStream out) {
@@ -99,7 +99,7 @@ public interface Bytes {
     }
 
     /**
-     * 将Bytes写入到文件中
+     * 将 Bytes 写入到文件中
      * @param file
      */
     default void toFile(File file) {
@@ -112,7 +112,7 @@ public interface Bytes {
     }
 
     /**
-     * 把Bytes转换成十六进制字符串
+     * 把 Bytes 转换成十六进制字符串
      * @return
      */
     default String toHexString() {
@@ -126,7 +126,7 @@ public interface Bytes {
     }
 
     /**
-     * 使用md5加密
+     * 使用 md5 加密
      * @return
      */
     default Bytes md5() {
@@ -135,7 +135,7 @@ public interface Bytes {
     }
 
     /**
-     * 使用sha1加密
+     * 使用 sha1 加密
      * @return
      */
     default Bytes sha1() {
@@ -144,7 +144,7 @@ public interface Bytes {
     }
 
     /**
-     * 使用sha256加密
+     * 使用 sha256 加密
      * @return
      */
     default Bytes sha256() {
@@ -192,7 +192,7 @@ public interface Bytes {
     }
 
     /**
-     * 将base64的字符串转换成字节数组 (仅支持jdk 1.8以上)
+     * 将 base64 的字符串转换成字节数组 (仅支持jdk 1.8以上)
      * @param base64
      * @return
      */

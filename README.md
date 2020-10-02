@@ -12,10 +12,11 @@
 * 支持 Hash: 内置 md5、sha1、sha256
 * 支持 Hmac加密: 内置 HmacMD5、HmacSHA1、HmacSHA256
 * 支持转换成十六进制字符串、十六进制字符串转换成二进制字节数组
-* 支持 mmap 常用读写操作：readByte/writeByte、readBytes/writeBytes、readInt/writeInt、readLong/writeLong、readDouble/writeDouble、readObject/writeObject
 * 支持对象的序列化、反序列化、深拷贝
 * 支持将 Bytes 写入到输出流、文件中
 * core、mmap 模块不依赖于任何第三方库
+* 支持 mmap 常用读写操作：readByte/writeByte、readBytes/writeBytes、readInt/writeInt、readLong/writeLong、readDouble/writeDouble、readObject/writeObject
+
 
 # 最新版本
 
@@ -25,7 +26,6 @@ bytekit-core|[ ![Download](https://api.bintray.com/packages/fengzhizi715/maven/b
 bytekit-mmap|[ ![Download](https://api.bintray.com/packages/fengzhizi715/maven/bytekit-mmap/images/download.svg) ](https://bintray.com/fengzhizi715/maven/bytekit-mmap/_latestVersion)|
 
 # 下载：
-
 
 bytekit-core
 
