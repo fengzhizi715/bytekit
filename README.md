@@ -14,9 +14,9 @@
 * 支持转换成十六进制字符串、十六进制字符串转换成二进制字节数组
 * 支持对象的序列化、反序列化、深拷贝
 * 支持将 Bytes 写入到输出流、文件中
-* core、mmap 模块不依赖于任何第三方库
 * 支持 mmap 常用读写操作：readByte/writeByte、readBytes/writeBytes、readInt/writeInt、readLong/writeLong、readDouble/writeDouble、readObject/writeObject
 
+> core、mmap 模块不依赖于任何第三方库
 
 # 最新版本
 
